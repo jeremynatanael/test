@@ -496,7 +496,7 @@ a { text-decoration: none; color: inherit; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  /* HAPUS properti grid-auto-rows: 280px; agar tinggi card fleksibel */
+  align-items: stretch; /* Memastikan semua card di baris yang sama tingginya sejajar */
 }
 
 .gallery-card {
@@ -506,7 +506,7 @@ a { text-decoration: none; color: inherit; }
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  height: 100%; /* Memastikan tinggi semua card sejajar */
+  height: 100%;
 }
 
 .gallery-card--wide {
@@ -515,17 +515,17 @@ a { text-decoration: none; color: inherit; }
 
 .gallery-img-wrap {
   width: 100%;
-  aspect-ratio: 4/3; /* KUNCI UTAMA: Memaksa semua ruang foto berukuran seragam */
+  height: 240px; /* KUNCI UTAMA: Kunci tingginya agar card lebar tidak jadi raksasa */
   position: relative;
   overflow: hidden;
   background: #EDE3D8;
-  flex-shrink: 0; /* Mencegah area gambar tertekan oleh teks deskripsi */
+  flex-shrink: 0;
 }
 
 .gallery-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Memaksa gambar memenuhi kotak tanpa distorsi (gepeng) */
+  object-fit: cover; /* Ini tetap agar foto yang dimasukkan tidak gepeng */
   object-position: center;
   transition: transform 0.5s ease;
   display: block;
@@ -968,7 +968,6 @@ a { text-decoration: none; color: inherit; }
 
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
-    /* grid-auto-rows: 240px; <-- HAPUS ATAU JADIKAN KOMENTAR BARIS INI */
   }
 
   .gallery-card--wide { grid-column: span 2; }
@@ -1003,6 +1002,10 @@ a { text-decoration: none; color: inherit; }
   .gallery-grid {
     grid-template-columns: 1fr;
     /* grid-auto-rows: 220px; <-- HAPUS ATAU JADIKAN KOMENTAR BARIS INI */
+  }
+
+  .gallery-img-wrap {
+    height: 200px; /* Sedikit dipendekkan agar pas di layar HP */
   }
 
   .gallery-card--wide { grid-column: span 1; } /* Reset wide card agar memenuhi layar penuh di HP */
